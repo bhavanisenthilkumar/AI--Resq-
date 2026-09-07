@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI-ResQ</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>AI-ResQ 🚁</h1>
+
+    <h2>AI-Powered Disaster Search & Rescue System</h2>
+
+    <p>
+        Intelligent drone-based disaster monitoring and survivor rescue system.
+    </p>
+
+    <!-- START MISSION -->
+    <button onclick="startMission()">START MISSION</button>
+
+    <p id="missionStatus">Mission Status: READY</p>
+
+
+    <!-- DRONE SCANNING -->
+    <section id="droneScanning" class="dashboard-section">
+
+        <h2>🚁 Drone Scanning</h2>
+
+        <div class="drone-area">
+
+            <div class="drone-icon">🚁</div>
+
+            <div class="scan-info">
+
+                <p>
+                    <strong>Scan Area:</strong>
+                    Disaster Zone
+                </p>
+
+                <p>
+                    <strong>Drone Status:</strong>
+                    <span id="droneStatus">READY</span>
+                </p>
+
+                <p>
+                    <strong>Scan Progress:</strong>
+                    <span id="scanProgress">0%</span>
+                </p>
+
+            </div>
+
+        </div>
+
+        <button onclick="startScanning()">
+            START DRONE SCAN
+        </button>
+
+    </section>
+
+
+    <!-- AI SURVIVOR DETECTION -->
+    <section id="aiDetection" class="dashboard-section">
+
+        <h2>🤖 AI Survivor Detection</h2>
+
+        <div class="detection-box">
+
+            <div class="ai-icon">🔍</div>
+
+            <p>
+                <strong>Detection Status:</strong>
+                <span id="detectionStatus">READY</span>
+            </p>
+
+            <p>
+                <strong>Survivors Detected:</strong>
+                <span id="survivorCount">0</span>
+            </p>
+
+            <p id="survivorMessage">
+                No survivor detected yet.
+            </p>
+
+        </div>
+
+        <button onclick="detectSurvivor()">
+            START AI DETECTION
+        </button>
+
+    </section>
+
+
+    <!-- PRIORITY ASSESSMENT -->
+    <section id="priorityAssessment" class="dashboard-section">
+
+        <h2>🚨 Priority Assessment</h2>
+
+        <div class="priority-card">
+
+            <div class="survivor">
+                <h3>👤 S1</h3>
+                <p>Condition: <strong>Critical</strong></p>
+                <p>Distance: <strong>120 m</strong></p>
+                <p>Priority: <span class="high">HIGH</span></p>
+            </div>
+
+            <div class="survivor">
+                <h3>👤 S2</h3>
+                <p>Condition: <strong>Injured</strong></p>
+                <p>Distance: <strong>250 m</strong></p>
+                <p>Priority: <span class="medium">MEDIUM</span></p>
+            </div>
+
+            <div class="survivor">
+                <h3>👤 S3</h3>
+                <p>Condition: <strong>Safe</strong></p>
+                <p>Distance: <strong>400 m</strong></p>
+                <p>Priority: <span class="low">LOW</span></p>
+            </div>
+
+        </div>
+
+        <button onclick="analyzePriority()">
+            ANALYZE PRIORITY
+        </button>
+
+        <p id="priorityResult">
+            Priority Analysis: READY
+        </p>
+
+    </section>
+    <section id="liveDrone" class="dashboard-section">
+
+    <h2>🚁 Live Drone Navigation</h2>
+
+    <div class="live-map">
+
+        <div id="droneMarker" class="drone-marker">
+            🚁
+        </div>
+
+        <div id="survivorMarker" class="survivor-marker">
+            🚨
+            <span>S1</span>
+        </div>
+
+        <div class="route-path"></div>
+
+    </div>
+
+    <div class="drone-live-info">
+
+        <p>
+            <strong>Drone Status:</strong>
+            <span id="liveDroneStatus">READY</span>
+        </p>
+
+        <p>
+            <strong>Target:</strong>
+            <span>S1 — Critical</span>
+        </p>
+
+        <p>
+            <strong>Distance Remaining:</strong>
+            <span id="distanceRemaining">520 m</span>
+        </p>
+
+    </div>
+
+    <button onclick="startDroneMovement()">
+        🚁 START LIVE DRONE
+    </button>
+
+</section>
+   
+    <!-- RESCUE ROUTE -->
+    <section id="rescueRoute" class="dashboard-section">
+
+        <h2>🗺️ Rescue Route</h2>
+
+        <div class="route-map">
+
+            <div class="location drone-location">
+
+                🚁<br>
+
+                <strong>Drone</strong>
+
+            </div>
+
+            <div class="route-line">
+                ➡️ ➡️ ➡️
+            </div>
+
+            <div class="location survivor-location">
+
+                🚨<br>
+
+                <strong>S1</strong><br>
+
+                HIGH PRIORITY
+
+            </div>
+
+        </div>
+
+        <p>
+            <strong>Route Status:</strong>
+            <span id="routeStatus">READY</span>
+        </p>
+
+        <p>
+            <strong>Total Distance:</strong>
+            <span id="routeDistance">--</span>
+        </p>
+
+        <button onclick="calculateRoute()">
+            CALCULATE RESCUE ROUTE
+        </button>
+
+    </section>
+    <!-- =========================================
+     RESCUE TEAM COMMUNICATION
+     ========================================= -->
+
+<section id="rescueCommunication" class="dashboard-section">
+
+    <h2>📡 Rescue Team Communication</h2>
+
+    <div class="communication-box">
+
+        <div class="team-icon">
+            📡
+        </div>
+
+        <p>
+            <strong>Team Status:</strong>
+            <span id="teamStatus">READY</span>
+        </p>
+
+        <p>
+            <strong>Target:</strong>
+            <span id="teamTarget">S1 — Critical</span>
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            <span id="teamLocation">Disaster Zone</span>
+        </p>
+
+        <p>
+            <strong>Priority:</strong>
+            <span class="high">HIGH</span>
+        </p>
+
+        <div id="teamMessage">
+            Rescue team has not been notified yet.
+        </div>
+
+    </div>
+
+    <button onclick="notifyRescueTeam()">
+        📡 NOTIFY RESCUE TEAM
+    </button>
+
+</section>
+<!-- =========================================
+     EMERGENCY KIT DELIVERY
+     ========================================= -->
+
+<section id="emergencyKit" class="dashboard-section">
+
+    <h2>🚁 Emergency Kit Delivery</h2>
+
+    <div class="kit-box">
+
+        <div class="kit-icon">
+            📦
+        </div>
+
+        <p>
+            <strong>Delivery Status:</strong>
+            <span id="kitStatus">READY</span>
+        </p>
+
+        <p>
+            <strong>Target:</strong>
+            <span id="kitTarget">S1 — Critical</span>
+        </p>
+
+        <p>
+            <strong>Kit:</strong>
+            <span id="kitType">Emergency Medical Kit</span>
+        </p>
+
+        <p>
+            <strong>Delivery Distance:</strong>
+            <span id="kitDistance">120 m</span>
+        </p>
+
+        <div id="kitMessage">
+            Emergency kit is ready for delivery.
+        </div>
+
+    </div>
+
+    <button onclick="deliverEmergencyKit()">
+        🚁 DELIVER EMERGENCY KIT
+    </button>
+
+</section>
+<!-- =========================================
+     MEDICAL AI ROBOT
+     ========================================= -->
+
+<section id="medicalRobot" class="dashboard-section">
+
+    <h2>🤖 Medical AI Robot</h2>
+
+    <div class="robot-box">
+
+        <div class="robot-icon">
+            🤖
+        </div>
+
+        <p>
+            <strong>Robot Status:</strong>
+            <span id="robotStatus">READY</span>
+        </p>
+
+        <p>
+            <strong>Target:</strong>
+            <span id="robotTarget">S1 — Critical</span>
+        </p>
+
+        <p>
+            <strong>Distance:</strong>
+            <span id="robotDistance">120 m</span>
+        </p>
+
+        <p>
+            <strong>Medical Support:</strong>
+            <span id="medicalSupport">STANDBY</span>
+        </p>
+
+        <div id="robotMessage">
+            Medical AI Robot is ready for dispatch.
+        </div>
+
+    </div>
+
+    <button onclick="dispatchMedicalRobot()">
+        🤖 DISPATCH MEDICAL ROBOT
+    </button>
+
+</section>
+
+
+    <!-- MISSION RECORDS -->
+    <section id="missionRecords" class="dashboard-section">
+
+        <h2>💾 Mission Records</h2>
+
+        <button onclick="saveMission()">
+            SAVE MISSION
+        </button>
+
+        <button onclick="viewRecords()">
+            VIEW MISSION RECORDS
+        </button>
+
+        <div id="recordMessage">
+
+            <p>Mission Records: READY</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

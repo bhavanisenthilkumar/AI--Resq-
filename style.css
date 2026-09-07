@@ -1,0 +1,772 @@
+/* =========================================
+   AI-ResQ — Clean Emergency Tech Theme
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7fafc;
+    color: #243447;
+    line-height: 1.6;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+body > h1 {
+    text-align: center;
+    padding-top: 35px;
+    color: #00a8cc;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+body > h2 {
+    text-align: center;
+    color: #7c5cfc;
+    margin-top: 5px;
+    font-size: 22px;
+}
+
+body > p {
+    text-align: center;
+    color: #68778a;
+    margin: 8px auto 30px;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 24px;
+    margin: 8px;
+    background: linear-gradient(135deg, #00a8cc, #7c5cfc);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 6px 18px rgba(0, 168, 204, 0.18);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(124, 92, 252, 0.25);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* =========================================
+   MISSION STATUS
+   ========================================= */
+
+#missionStatus {
+    width: 90%;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 16px;
+    text-align: center;
+    background: #ffffff;
+    border-left: 5px solid #00a8cc;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(36, 52, 71, 0.08);
+    font-weight: 700;
+}
+
+/* =========================================
+   DASHBOARD SECTIONS
+   ========================================= */
+
+.dashboard-section {
+    width: 92%;
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e5edf5;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(36, 52, 71, 0.08);
+    transition: 0.3s ease;
+}
+
+.dashboard-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(36, 52, 71, 0.12);
+}
+
+.dashboard-section h2 {
+    color: #243447;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+/* =========================================
+   DRONE SCANNING
+   ========================================= */
+
+.drone-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    margin: 25px 0;
+}
+
+.drone-icon {
+    font-size: 75px;
+    animation: droneFloat 2s ease-in-out infinite;
+}
+
+.scan-info {
+    text-align: left;
+}
+
+.scan-info p {
+    margin: 10px 0;
+}
+
+#droneStatus,
+#scanProgress {
+    color: #00a8cc;
+    font-weight: 800;
+}
+
+/* =========================================
+   AI DETECTION
+   ========================================= */
+
+.detection-box {
+    width: 90%;
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 25px;
+    background: linear-gradient(
+        135deg,
+        #eefcff,
+        #f4f0ff
+    );
+    border: 1px solid #dce9f5;
+    border-radius: 18px;
+}
+
+.ai-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+#detectionStatus,
+#survivorCount {
+    color: #7c5cfc;
+    font-weight: 800;
+}
+
+#survivorMessage {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* =========================================
+   PRIORITY ASSESSMENT
+   ========================================= */
+
+.priority-card {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.survivor {
+    width: 210px;
+    padding: 22px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #e5edf5;
+    box-shadow: 0 8px 22px rgba(36, 52, 71, 0.07);
+    transition: 0.25s;
+}
+
+.survivor:hover {
+    transform: translateY(-5px);
+}
+
+.survivor h3 {
+    margin-bottom: 10px;
+    color: #243447;
+}
+
+.high {
+    color: #ff4d67;
+    font-weight: 900;
+}
+
+.medium {
+    color: #ffaa33;
+    font-weight: 900;
+}
+
+.low {
+    color: #20c997;
+    font-weight: 900;
+}
+
+#priorityResult {
+    margin-top: 20px;
+    padding: 14px;
+    background: #fff3f5;
+    border-radius: 12px;
+    color: #ff4d67;
+    font-weight: 800;
+}
+
+/* =========================================
+   RESCUE ROUTE
+   ========================================= */
+
+.route-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 30px 0;
+    padding: 30px;
+    background: #f1f7fa;
+    border-radius: 18px;
+    border: 1px solid #dce9f5;
+}
+
+.location {
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 120px;
+    font-weight: 600;
+}
+
+.drone-location {
+    background: #dff8ff;
+    color: #0086a3;
+    border: 2px solid #00a8cc;
+}
+
+.survivor-location {
+    background: #fff0f3;
+    color: #d93652;
+    border: 2px solid #ff4d67;
+}
+
+.route-line {
+    font-size: 25px;
+    color: #7c5cfc;
+    letter-spacing: 5px;
+}
+
+#routeStatus {
+    color: #20c997;
+    font-weight: 800;
+}
+
+#routeDistance {
+    color: #7c5cfc;
+    font-weight: 800;
+}
+
+/* =========================================
+   MISSION RECORDS
+   ========================================= */
+
+#recordMessage {
+    margin: 20px auto;
+    padding: 20px;
+    width: 95%;
+    background: #f8fbfd;
+    border-radius: 15px;
+    border: 1px solid #e2ebf2;
+}
+
+#recordMessage h3 {
+    color: #7c5cfc;
+    margin-bottom: 15px;
+}
+
+#recordMessage p {
+    margin: 8px 0;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes droneFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body > h1 {
+        font-size: 32px;
+        padding-top: 25px;
+    }
+
+    body > h2 {
+        font-size: 18px;
+        padding: 0 15px;
+    }
+
+    body > p {
+        padding: 0 20px;
+    }
+
+    .dashboard-section {
+        width: 94%;
+        padding: 20px 15px;
+    }
+
+    .drone-area {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .scan-info {
+        text-align: center;
+    }
+
+    .route-map {
+        flex-direction: column;
+    }
+
+    .route-line {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+
+    .survivor {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    button {
+        width: 90%;
+        max-width: 320px;
+    }
+}
+/* =========================================
+   LIVE DRONE NAVIGATION
+   ========================================= */
+
+.live-map {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 360px;
+    margin: 25px auto;
+    overflow: hidden;
+
+    background:
+        linear-gradient(#dceff4 1px, transparent 1px),
+        linear-gradient(90deg, #dceff4 1px, transparent 1px);
+
+    background-size: 40px 40px;
+    background-color: #f5fafc;
+
+    border: 2px solid #b9dce5;
+    border-radius: 20px;
+}
+
+/* Rescue route line */
+
+.route-path {
+    position: absolute;
+
+    left: 12%;
+    top: 70%;
+
+    width: 76%;
+    height: 5px;
+
+    background: #7c5cfc;
+
+    border-radius: 10px;
+
+    transform: rotate(-25deg);
+
+    transform-origin: left center;
+
+    box-shadow: 0 0 10px rgba(124, 92, 252, 0.35);
+}
+
+
+/* Drone */
+
+.drone-marker {
+    position: absolute;
+
+    left: 10%;
+    top: 67%;
+
+    font-size: 45px;
+
+    z-index: 5;
+
+    transition:
+        left 1s linear,
+        top 1s linear;
+
+    filter: drop-shadow(0 5px 8px rgba(0, 168, 204, 0.3));
+}
+
+
+/* Survivor */
+
+.survivor-marker {
+    position: absolute;
+
+    right: 10%;
+    top: 18%;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #fff0f3;
+
+    border: 3px solid #ff4d67;
+
+    border-radius: 50%;
+
+    color: #ff4d67;
+
+    font-size: 25px;
+
+    z-index: 4;
+
+    animation: criticalPulse 1.5s infinite;
+}
+
+.survivor-marker span {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* Live information */
+
+.drone-live-info {
+    background: #f8fbfd;
+
+    width: 90%;
+    max-width: 600px;
+
+    margin: 20px auto;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    border: 1px solid #dce9f5;
+
+    text-align: left;
+}
+
+.drone-live-info p {
+    margin: 8px 0;
+}
+
+#liveDroneStatus {
+    color: #00a8cc;
+    font-weight: 800;
+}
+
+#distanceRemaining {
+    color: #7c5cfc;
+    font-weight: 800;
+}
+
+
+/* Critical survivor animation */
+
+@keyframes criticalPulse {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 103, 0.35);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 77, 103, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 77, 103, 0);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .live-map {
+        height: 300px;
+    }
+
+    .drone-marker {
+        font-size: 35px;
+    }
+
+    .survivor-marker {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+    }
+
+    .route-path {
+        width: 70%;
+    }
+}
+/* =========================================
+   RESCUE TEAM COMMUNICATION
+   ========================================= */
+
+.communication-box {
+    width: 90%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #eefcff, #f4f0ff);
+    border: 1px solid #dce9f5;
+    border-radius: 18px;
+    text-align: left;
+}
+
+.team-icon {
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.communication-box p {
+    margin: 10px 0;
+}
+
+#teamStatus {
+    color: #00a8cc;
+    font-weight: 800;
+}
+
+#teamTarget {
+    color: #ff4d67;
+    font-weight: 800;
+}
+
+#teamLocation {
+    color: #7c5cfc;
+    font-weight: 700;
+}
+
+#teamMessage {
+    margin-top: 18px;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 12px;
+    border-left: 4px solid #00a8cc;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+
+    .communication-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+}
+/* =========================================
+   EMERGENCY KIT DELIVERY
+   ========================================= */
+
+.kit-box {
+    width: 90%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #eefcff, #f4f0ff);
+    border: 1px solid #dce9f5;
+    border-radius: 18px;
+    text-align: left;
+}
+
+.kit-icon {
+    text-align: center;
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: kitFloat 2s ease-in-out infinite;
+}
+
+.kit-box p {
+    margin: 10px 0;
+}
+
+#kitStatus {
+    color: #00a8cc;
+    font-weight: 800;
+}
+
+#kitTarget {
+    color: #ff4d67;
+    font-weight: 800;
+}
+
+#kitType {
+    color: #7c5cfc;
+    font-weight: 700;
+}
+
+#kitDistance {
+    color: #20c997;
+    font-weight: 800;
+}
+
+#kitMessage {
+    margin-top: 18px;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 12px;
+    border-left: 4px solid #20c997;
+    font-weight: 600;
+}
+
+@keyframes kitFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .kit-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+}
+/* =========================================
+   MEDICAL AI ROBOT
+   ========================================= */
+
+.robot-box {
+    width: 90%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #f4f0ff, #eefcff);
+    border: 1px solid #dce9f5;
+    border-radius: 18px;
+    text-align: left;
+}
+
+.robot-icon {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 15px;
+    animation: robotFloat 2s ease-in-out infinite;
+}
+
+.robot-box p {
+    margin: 10px 0;
+}
+
+#robotStatus {
+    color: #00a8cc;
+    font-weight: 800;
+}
+
+#robotTarget {
+    color: #ff4d67;
+    font-weight: 800;
+}
+
+#robotDistance {
+    color: #7c5cfc;
+    font-weight: 800;
+}
+
+#medicalSupport {
+    color: #20c997;
+    font-weight: 800;
+}
+
+#robotMessage {
+    margin-top: 18px;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 12px;
+    border-left: 4px solid #7c5cfc;
+    font-weight: 600;
+}
+
+@keyframes robotFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .robot-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+}
